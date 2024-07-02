@@ -1,0 +1,217 @@
+# Review on Basic Probabilities, Sampling Distribution and Normal related Distributions
+
+## Convergence and Statistics
+
+### Expectation
+
+> Expectation for Discrete Random Variable: $$
+> E(X)=\sum x_i f(x_i)
+> $$
+
+> Expectation for Continuous Random Variable: $$
+> E(X)=\int x f(x) dx
+> $$
+
+### Types of Convergence
+
+In this section, we will develop the theoretical background to study the convergence of a sequence of random variables in more detail. In particular, we will define different types of convergence. When we say that the sequence $X_n$ converges to $X$, it means that $X_n$ 's are getting ''closer and closer'' to $X$. Different types of convergence refer to different ways of defining what ''closer'' means. We also discuss how different types of convergence are related.
+
+#### Convergence of Sequence
+
+> Convergence of Sequence: A sequence $a_1,a_2,a_3, \cdots, a_n$ converges to a limit $L$ if $$
+> \lim_{n\rightarrow \infty} a_n=L
+> $$ That is, for any $\epsilon>0$, there exists an $N\in \mathbb{N}$ such that $$
+> |a_n-L|<\epsilon, \quad \text{ for all } n> N
+> $$
+
+#### Convergence in Distribution
+
+Convergence in distribution is in some sense the weakest type of convergence. All it says is that the CDF of $X_n$''s converges to the CDF of $X$ as $n$ goes to infinity. It does not require any dependence between the $X_n$'s and $X$.
+
+> Convergence in Distribution: A sequence of random variables $X_1,X_2,X_3,\cdots, X_n,\cdots$ convergences in distribution to a random variable $X$, shown by\
+> $$
+> X_n \ \xrightarrow{d}\ X
+> $$ if $$
+> \lim_{n\rightarrow \infty} F_{X_n}(x)=F_X(x)
+> $$ for all x at which $F_X(x)$ is continuous.
+
+The Central Limit Theorem (CLT) is an example of the convergence in distribution.
+
+#### Convergence in Probability
+
+> Convergence in Probability: A sequence of random variables $X_1,X_2,X_3,\cdots, X_n,\cdots$ convergences in probability to a random variable $X$, shown by\
+> $$
+> X_n\xrightarrow{P}X
+> $$ if $$
+> \lim_{n \rightarrow \infty}P(|X_n-X|\geq \epsilon)=0, \quad \text{for all } \epsilon >0
+> $$
+
+#### Convergence in Mean
+
+> Convergence in Mean:
+>
+> Let $r\geq 1$ be a fixed number, a sequence of random variables $X_1,X_2,\cdots$ converges in the $r$-th mean or in the $L^r$ norm to a random variable $X$, shown by $X_n \xrightarrow{L^r} X$, if $$
+> \lim_{n \rightarrow \infty} E(|X_n-X|^r)=0.
+> $$ If $r=2$, it is called the mean-square convergence, and it is shown by $$
+> X_n\xrightarrow{m.s.}X.
+> $$
+
+#### Convergence Almost Surely
+
+> In general, if the probability that the sequence $X_n(s)$ converges to $X(s)$ is equal to $1$, we say that $X_n$ converges to $X$ almost surely and write $$
+> X_n \xrightarrow{a.s.} X
+> $$ if $$
+> P\left(\left\{s\in S: \lim_{n\rightarrow \infty}X_n(s)=X(s)\right\}\right)=1
+> $$
+
+It worth mentioning that, the concepts of convergence in probability and almost sure convergence in probability theory are specialisations of the concepts of [convergence in measure](http://en.wikipedia.org/wiki/Convergence_in_measure) and [pointwise convergence almost everywhere](http://en.wikipedia.org/wiki/Pointwise_convergence#In_measure_theory) in measure theory.
+
+### Basic Probability Theory
+
+#### $\sigma$-algrbra, algebra and semi-ring
+
+> Definition: algebra, $\sigma$-algrbra, semi-ring
+
+FAQ: [Example of an algebra not a $\sigma$-algebra](https://math.stackexchange.com/questions/233702/example-of-an-algebra-which-is-not-a-%CF%83-algebra)
+
+Not required, just as an introduction. If you are very intersted in probability theory, it is a recommendation to find out why we need these definitions.
+
+### Sequence of Random Variables
+
+In statistics, we draw a sample to make inference of the population, then, if we repeatly draw samples, we will have a sequence of samples from the same population, we usually refer them as i.i.d. (independent and identical distributed) or random samples. This can be denoted as 
+
+$$
+\{\Omega,\Sigma,P\}
+$$ 
+where $\Omega$ is the sample space, 
+
+$$
+\Omega=\{\omega_1,\omega_2,\cdots, \omega_n\}, \quad w_i \text{ are simple(single) events}
+$$ 
+
+$\Sigma$ is the $\sigma$-algebra (You may consider it is set of the sets of simple events in brief) and $P$ is a probability measure.
+
+However, if we consider the samples not necessarily from the same population, we may have a sequence of random variables $X_1,X_2,\cdots$, and an correspnded underlying sample space $\Omega$. In particular, each $X_n$ is a function from its $\Omega$, to real numbers through the probability measure $P$.
+
+In other words, a sequence of random variables is in fact a sequence of functions (Mapping, or $P$, or a probability measure) $X_n:\Omega\rightarrow \mathbb{R}$ , such as 
+
+$$
+P(\omega_i)=x_i, \quad \omega_i \in \Omega \text{ and } \sum x_i=1, \quad i = 1,\cdots,n
+$$
+
+###### Example: Convergence of Sequence of R.V.
+
+Consider the following random experiment: A fair coin is tossed once. Here, the sample space has only two elements $S=\{H,T\}$. We define a sequence of random variables $X_1,X_2,\cdots$ on this sample space as follows: 
+
+$$
+\nonumber X_n(s) = \left\{
+\begin{array}{l l}
+\frac{1}{n+1} & \qquad \textrm{ if }s=H \\
+& \qquad \\
+1 & \qquad \textrm{ if }s=T
+\end{array} \right.
+$$
+
+1.  Are the $X_i$ independent?
+
+    No, they are dependent as they are measuring the same coin.
+
+2.  Find the PMF and CDF of $X_n$, $F_{X_n}(x)$ for $n=1,2,3,\cdots$.
+
+    The PMF are
+    
+$$
+   \nonumber P_{{\large X_n}}(x)=P(X_n=x) = \left\{
+   \begin{array}{l l}
+   \frac{1}{2} & \qquad \textrm{ if }x=\frac{1}{n+1} \\
+   & \qquad \\
+   \frac{1}{2} & \qquad \textrm{ if }x=1
+   \end{array} \right.
+$$
+
+Correspondingly, the CDF are
+
+$$
+   \nonumber F_{{\large X_n}}(x)=P(X_n \leq x) = \left\{
+   \begin{array}{l l}
+   1 & \qquad \textrm{ if }x \geq 1\\
+   & \qquad \\
+   \frac{1}{2} & \qquad \textrm{ if }\frac{1}{n+1} \leq x <1 \\
+   & \qquad \\
+   0 & \qquad \textrm{ if }x< \frac{1}{n+1}
+   \end{array} \right.
+$$
+
+3.  As $n$ goes to infinity, what does $F_{X_n}(x)$ look like?
+
+## Sampling Distribution
+
+### Statistic and Parameter
+
+> Definition: Statistics
+>
+> A *statistic* is a function of the observable random variables in a sample and known constants.
+
+|                    |   Statistic    | Parameter |
+|:------------------:|:--------------:|:---------:|
+|        Mean        |   $\bar{x}$    |   $\mu$   |
+| Standard Deviation |      $s$       | $\sigma$  |
+|     Proportion     |   $\hat{p}$    |    $p$    |
+|      $\vdots$      |    $\vdots$    | $\vdots$  |
+|     In general     | $\hat{\theta}$ | $\theta$  |
+
+> Definition: Sampling Distribution.
+>
+> All statistics have probability distributions, which we will call them *sampling distributions.*
+
+### Sample Mean
+
+> Sample Mean: $$
+> \bar{X}=\frac{\sum_{i=1}^n X_i}{n}
+> $$ refered as a random varible $\bar{X}$ as a function of random variables $X_1,X_2,\cdots, X_n$.
+
+Here we discuss the mean and variance of this random variable, that is to say the R.V. $\bar{X}$.
+
+### Law of Large Numbers
+
+To start, we specify the Law of large numbers. There are two main versions of the Law of large numbers
+
+**The Weak Law of Large Numbers (WLLN)**: 
+
+Let $X_1,X_2,\cdots,X_n$ be i.i.d. random variables with finite expected value $E(X_i)=\mu<\infty$. Then, for any $\epsilon>0$, 
+
+$$\lim_{n\rightarrow \infty}P\big(|\bar{X}-\mu| \geq \epsilon\big)=0 $$ 
+
+That is 
+
+$$
+ \bar{X}\xrightarrow{p} \mu
+$$ 
+ 
+*Proof*
+
+Assume the variance of $X$ be $Var(X)=\sigma^2$ is finite. In this case, we can use Chebyshev's inequality to write $$
+P(|\bar{X}-\mu| \geq \epsilon) \leq \frac{Var(\bar{X})}{\epsilon^2}=\frac{Var(X)}{n\epsilon^2}
+$$ This goes to zero as $n\rightarrow \infty$.
+
+> **The Strong Law of Large Numbers (SLLN)**: Let $X_1,X_2,\cdots,X_n$ be i.i.d. random variables with finite expected value $E(X_i)=\mu<\infty$.
+
+$$
+ \bar{X} \xrightarrow{a.s.} \mu
+$$
+
+
+## Reference
+
+-   Pishro-Nik, H. (2016). Introduction to probability, statistics, and random processes.
+
+-   Wackerly, D., Mendenhall, W., & Scheaffer, R. L. (2014). *Mathematical statistics with applications*. Cengage Learning.
+
+-   Casella, G., & Berger, R. L. (2021). *Statistical inference*. Cengage Learning.
+
+-   Hogg, R. V., & Craig, A. T. (1995). Introduction to mathematical statistics.(5"" edition). *Englewood Hills, New Jersey*.
+
+-   [Terry Tao's Blog](https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/)
+
+-   [t-distribution](https://math.stackexchange.com/questions/474733/derivation-of-the-density-function-of-student-t-distribution-from-this-big-integ)
+

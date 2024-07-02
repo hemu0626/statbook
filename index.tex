@@ -1,0 +1,1046 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\theoremstyle{remark}
+\AtBeginDocument{\renewcommand*{\proofname}{Proof}}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Statistics},
+  pdfauthor={Mu He},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Statistics}
+\author{Mu He}
+\date{2024-05-16}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, interior hidden, boxrule=0pt, enhanced, sharp corners]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+\markboth{Preface}{Preface}
+
+This is a Quarto book.
+
+To learn more about Quarto books visit
+\url{https://quarto.org/docs/books}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{1} \SpecialCharTok{+} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2
+\end{verbatim}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{review-on-basic-probabilities-sampling-distribution-and-normal-related-distributions}{%
+\chapter{Review on Basic Probabilities, Sampling Distribution and Normal
+related
+Distributions}\label{review-on-basic-probabilities-sampling-distribution-and-normal-related-distributions}}
+
+\hypertarget{convergence-and-statistics}{%
+\section{Convergence and Statistics}\label{convergence-and-statistics}}
+
+\hypertarget{expectation}{%
+\subsection{Expectation}\label{expectation}}
+
+\begin{quote}
+Expectation for Discrete Random Variable: \[
+E(X)=\sum x_i f(x_i)
+\]
+\end{quote}
+
+\begin{quote}
+Expectation for Continuous Random Variable: \[
+E(X)=\int x f(x) dx
+\]
+\end{quote}
+
+\hypertarget{types-of-convergence}{%
+\subsection{Types of Convergence}\label{types-of-convergence}}
+
+In this section, we will develop the theoretical background to study the
+convergence of a sequence of random variables in more detail. In
+particular, we will define different types of convergence. When we say
+that the sequence \(X_n\) converges to \(X\), it means that \(X_n\) `s
+are getting'`closer and closer'' to \(X\). Different types of
+convergence refer to different ways of defining what `'closer'' means.
+We also discuss how different types of convergence are related.
+
+\hypertarget{convergence-of-sequence}{%
+\subsubsection{Convergence of Sequence}\label{convergence-of-sequence}}
+
+\begin{quote}
+Convergence of Sequence: A sequence \(a_1,a_2,a_3, \cdots, a_n\)
+converges to a limit \(L\) if \[
+\lim_{n\rightarrow \infty} a_n=L
+\] That is, for any \(\epsilon>0\), there exists an \(N\in \mathbb{N}\)
+such that \[
+|a_n-L|<\epsilon, \quad \text{ for all } n> N
+\]
+\end{quote}
+
+\hypertarget{convergence-in-distribution}{%
+\subsubsection{Convergence in
+Distribution}\label{convergence-in-distribution}}
+
+Convergence in distribution is in some sense the weakest type of
+convergence. All it says is that the CDF of \(X_n\)'\,'s converges to
+the CDF of \(X\) as \(n\) goes to infinity. It does not require any
+dependence between the \(X_n\)'s and \(X\).
+
+\begin{quote}
+Convergence in Distribution: A sequence of random variables
+\(X_1,X_2,X_3,\cdots, X_n,\cdots\) convergences in distribution to a
+random variable \(X\), shown by\\
+\[
+X_n \ \xrightarrow{d}\ X
+\] if \[
+\lim_{n\rightarrow \infty} F_{X_n}(x)=F_X(x)
+\] for all x at which \(F_X(x)\) is continuous.
+\end{quote}
+
+The Central Limit Theorem (CLT) is an example of the convergence in
+distribution.
+
+\hypertarget{convergence-in-probability}{%
+\subsubsection{Convergence in
+Probability}\label{convergence-in-probability}}
+
+\begin{quote}
+Convergence in Probability: A sequence of random variables
+\(X_1,X_2,X_3,\cdots, X_n,\cdots\) convergences in probability to a
+random variable \(X\), shown by\\
+\[
+X_n\xrightarrow{P}X
+\] if \[
+\lim_{n \rightarrow \infty}P(|X_n-X|\geq \epsilon)=0, \quad \text{for all } \epsilon >0
+\]
+\end{quote}
+
+\hypertarget{convergence-in-mean}{%
+\subsubsection{Convergence in Mean}\label{convergence-in-mean}}
+
+\begin{quote}
+Convergence in Mean:
+
+Let \(r\geq 1\) be a fixed number, a sequence of random variables
+\(X_1,X_2,\cdots\) converges in the \(r\)-th mean or in the \(L^r\) norm
+to a random variable \(X\), shown by \(X_n \xrightarrow{L^r} X\), if \[
+\lim_{n \rightarrow \infty} E(|X_n-X|^r)=0.
+\] If \(r=2\), it is called the mean-square convergence, and it is shown
+by \[
+X_n\xrightarrow{m.s.}X.
+\]
+\end{quote}
+
+\hypertarget{convergence-almost-surely}{%
+\subsubsection{Convergence Almost
+Surely}\label{convergence-almost-surely}}
+
+\begin{quote}
+In general, if the probability that the sequence \(X_n(s)\) converges to
+\(X(s)\) is equal to \(1\), we say that \(X_n\) converges to \(X\)
+almost surely and write \[
+X_n \xrightarrow{a.s.} X
+\] if \[
+P\left(\left\{s\in S: \lim_{n\rightarrow \infty}X_n(s)=X(s)\right\}\right)=1
+\]
+\end{quote}
+
+It worth mentioning that, the concepts of convergence in probability and
+almost sure convergence in probability theory are specialisations of the
+concepts of
+\href{http://en.wikipedia.org/wiki/Convergence_in_measure}{convergence
+in measure} and
+\href{http://en.wikipedia.org/wiki/Pointwise_convergence\#In_measure_theory}{pointwise
+convergence almost everywhere} in measure theory.
+
+\hypertarget{basic-probability-theory}{%
+\subsection{Basic Probability Theory}\label{basic-probability-theory}}
+
+\hypertarget{sigma-algrbra-algebra-and-semi-ring}{%
+\subsubsection{\texorpdfstring{\(\sigma\)-algrbra, algebra and
+semi-ring}{\textbackslash sigma-algrbra, algebra and semi-ring}}\label{sigma-algrbra-algebra-and-semi-ring}}
+
+\begin{quote}
+Definition: algebra, \(\sigma\)-algrbra, semi-ring
+\end{quote}
+
+FAQ:
+\href{https://math.stackexchange.com/questions/233702/example-of-an-algebra-which-is-not-a-\%CF\%83-algebra}{Example
+of an algebra not a \(\sigma\)-algebra}
+
+Not required, just as an introduction. If you are very intersted in
+probability theory, it is a recommendation to find out why we need these
+definitions.
+
+\hypertarget{sequence-of-random-variables}{%
+\subsection{Sequence of Random
+Variables}\label{sequence-of-random-variables}}
+
+In statistics, we draw a sample to make inference of the population,
+then, if we repeatly draw samples, we will have a sequence of samples
+from the same population, we usually refer them as i.i.d. (independent
+and identical distributed) or random samples. This can be denoted as
+
+\[
+\{\Omega,\Sigma,P\}
+\] where \(\Omega\) is the sample space,
+
+\[
+\Omega=\{\omega_1,\omega_2,\cdots, \omega_n\}, \quad w_i \text{ are simple(single) events}
+\]
+
+\(\Sigma\) is the \(\sigma\)-algebra (You may consider it is set of the
+sets of simple events in brief) and \(P\) is a probability measure.
+
+However, if we consider the samples not necessarily from the same
+population, we may have a sequence of random variables
+\(X_1,X_2,\cdots\), and an correspnded underlying sample space
+\(\Omega\). In particular, each \(X_n\) is a function from its
+\(\Omega\), to real numbers through the probability measure \(P\).
+
+In other words, a sequence of random variables is in fact a sequence of
+functions (Mapping, or \(P\), or a probability measure)
+\(X_n:\Omega\rightarrow \mathbb{R}\) , such as
+
+\[
+P(\omega_i)=x_i, \quad \omega_i \in \Omega \text{ and } \sum x_i=1, \quad i = 1,\cdots,n
+\]
+
+\hypertarget{example-convergence-of-sequence-of-r.v.}{%
+\subparagraph{Example: Convergence of Sequence of
+R.V.}\label{example-convergence-of-sequence-of-r.v.}}
+
+Consider the following random experiment: A fair coin is tossed once.
+Here, the sample space has only two elements \(S=\{H,T\}\). We define a
+sequence of random variables \(X_1,X_2,\cdots\) on this sample space as
+follows:
+
+\[
+\nonumber X_n(s) = \left\{
+\begin{array}{l l}
+\frac{1}{n+1} & \qquad \textrm{ if }s=H \\
+& \qquad \\
+1 & \qquad \textrm{ if }s=T
+\end{array} \right.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Are the \(X_i\) independent?
+
+  No, they are dependent as they are measuring the same coin.
+\item
+  Find the PMF and CDF of \(X_n\), \(F_{X_n}(x)\) for
+  \(n=1,2,3,\cdots\).
+
+  The PMF are
+\end{enumerate}
+
+\[
+   \nonumber P_{{\large X_n}}(x)=P(X_n=x) = \left\{
+   \begin{array}{l l}
+   \frac{1}{2} & \qquad \textrm{ if }x=\frac{1}{n+1} \\
+   & \qquad \\
+   \frac{1}{2} & \qquad \textrm{ if }x=1
+   \end{array} \right.
+\]
+
+Correspondingly, the CDF are
+
+\[
+   \nonumber F_{{\large X_n}}(x)=P(X_n \leq x) = \left\{
+   \begin{array}{l l}
+   1 & \qquad \textrm{ if }x \geq 1\\
+   & \qquad \\
+   \frac{1}{2} & \qquad \textrm{ if }\frac{1}{n+1} \leq x <1 \\
+   & \qquad \\
+   0 & \qquad \textrm{ if }x< \frac{1}{n+1}
+   \end{array} \right.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  As \(n\) goes to infinity, what does \(F_{X_n}(x)\) look like?
+\end{enumerate}
+
+\hypertarget{sampling-distribution}{%
+\section{Sampling Distribution}\label{sampling-distribution}}
+
+\hypertarget{statistic-and-parameter}{%
+\subsection{Statistic and Parameter}\label{statistic-and-parameter}}
+
+\begin{quote}
+Definition: Statistics
+
+A \emph{statistic} is a function of the observable random variables in a
+sample and known constants.
+\end{quote}
+
+\begin{longtable}[]{@{}ccc@{}}
+\toprule\noalign{}
+& Statistic & Parameter \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Mean & \(\bar{x}\) & \(\mu\) \\
+Standard Deviation & \(s\) & \(\sigma\) \\
+Proportion & \(\hat{p}\) & \(p\) \\
+\(\vdots\) & \(\vdots\) & \(\vdots\) \\
+In general & \(\hat{\theta}\) & \(\theta\) \\
+\end{longtable}
+
+\begin{quote}
+Definition: Sampling Distribution.
+
+All statistics have probability distributions, which we will call them
+\emph{sampling distributions.}
+\end{quote}
+
+\hypertarget{sample-mean}{%
+\subsection{Sample Mean}\label{sample-mean}}
+
+\begin{quote}
+Sample Mean: \[
+\bar{X}=\frac{\sum_{i=1}^n X_i}{n}
+\] refered as a random varible \(\bar{X}\) as a function of random
+variables \(X_1,X_2,\cdots, X_n\).
+\end{quote}
+
+Here we discuss the mean and variance of this random variable, that is
+to say the R.V. \(\bar{X}\).
+
+\hypertarget{law-of-large-numbers}{%
+\subsection{Law of Large Numbers}\label{law-of-large-numbers}}
+
+To start, we specify the Law of large numbers. There are two main
+versions of the Law of large numbers
+
+\begin{quote}
+\textbf{The Weak Law of Large Numbers (WLLN)}: Let
+\(X_1,X_2,\cdots,X_n\) be i.i.d. random variables with finite expected
+value \(E(X_i)=\mu<\infty\). Then, for any \(\epsilon>0\), \[
+\lim_{n\rightarrow \infty}P\big(|\bar{X}-\mu| \geq \epsilon\big)=0
+\] That is \[
+\bar{X}\xrightarrow{p} \mu
+\] \emph{Proof}
+
+Assume the variance of \(X\) be \(Var(X)=\sigma^2\) is finite. In this
+case, we can use Chebyshev's inequality to write \[
+P(|\bar{X}-\mu| \geq \epsilon) \leq \frac{Var(\bar{X})}{\epsilon^2}=\frac{Var(X)}{n\epsilon^2}
+\] This goes to zero as \(n\rightarrow \infty\).
+\end{quote}
+
+\begin{quote}
+\textbf{The Strong Law of Large Numbers (SLLN)}: Let
+\(X_1,X_2,\cdots,X_n\) be i.i.d. random variables with finite expected
+value \(E(X_i)=\mu<\infty\).
+\end{quote}
+
+\[
+ \bar{X} \xrightarrow{a.s.} \mu
+ \]
+
+\hypertarget{reference}{%
+\section{Reference}\label{reference}}
+
+\begin{itemize}
+\item
+  Pishro-Nik, H. (2016). Introduction to probability, statistics, and
+  random processes.
+\item
+  Wackerly, D., Mendenhall, W., \& Scheaffer, R. L. (2014).
+  \emph{Mathematical statistics with applications}. Cengage Learning.
+\item
+  Casella, G., \& Berger, R. L. (2021). \emph{Statistical inference}.
+  Cengage Learning.
+\item
+  Hogg, R. V., \& Craig, A. T. (1995). Introduction to mathematical
+  statistics.(5''\,'' edition). \emph{Englewood Hills, New Jersey}.
+\item
+  \href{https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/}{Terry
+  Tao's Blog}
+\item
+  \href{https://math.stackexchange.com/questions/474733/derivation-of-the-density-function-of-student-t-distribution-from-this-big-integ}{t-distribution}
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{normal-distribution-chi-square-distribution-t-distribution-and-f-distribution}{%
+\chapter{Normal Distribution, Chi-Square Distribution, t Distribution
+and F
+Distribution}\label{normal-distribution-chi-square-distribution-t-distribution-and-f-distribution}}
+
+This sections shows the relation between the four distribution and proof
+for the transformation.
+
+\hypertarget{normal-distribution}{%
+\section{Normal Distribution}\label{normal-distribution}}
+
+\begin{quote}
+Normal Distribution:
+\end{quote}
+
+\[
+f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}
+\]
+
+\begin{quote}
+Theorem: Let \(Y_1, Y_2, \cdots, Y_n\) be a random sample of size \(n\)
+from a \emph{normal} distribution with mean \(\mu\) and variance
+\(\sigma^2\). Then,
+\end{quote}
+
+\[
+\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i
+\] is normally distributed with mean \(\mu_{\bar{Y}}=E(\bar{Y})=\mu\)
+and variance \(\sigma^2_{\bar{Y}}=\frac{\sigma^2}{n}\)
+
+\hypertarget{standardized-z-value}{%
+\subsubsection{Standardized Z-Value}\label{standardized-z-value}}
+
+\begin{quote}
+Standard Normal Distribution: Z \[
+Z=\frac{\bar{Y}-\mu_{y}}{\sigma_{\bar{Y}}}=\frac{\bar{Y}-\mu}{\sigma/\sqrt{n}}
+\]
+\end{quote}
+
+We can use the Standard Normal Table or the softwares (R) to find the
+corresponding quantiles and probability.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qnorm}\NormalTok{(p,mu,sigma)}
+
+\FunctionTok{pnorm}\NormalTok{(q,mu,sigma)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{example-calculation}{%
+\subparagraph{Example: Calculation}\label{example-calculation}}
+
+A bottling machine can be regulated so that it discharges an average of
+\(\mu\) ounces perbottle. It has been observed that the amount of fill
+dispensed bythe machine is normally distributed with \(\sigma = 1.0\)
+ounce. A sample of \(n = 9\) filled bottles is randomly selected from
+the output of the machine on a given day (all bottled with the same
+machine setting), and the ounces of fill are measured for each.
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item
+  Find the probability that the sample mean will be within \(0.3\) ounce
+  of the true mean \(\mu\) for the chosen machine setting.
+\item
+  How many observations should be included in the sample if we wish
+  \(Y\) to be within .3 ounce of \(\mu\) with probability .95?
+\end{enumerate}
+
+\hypertarget{the-chi-square-distribution-a-special-gamma-distribution}{%
+\section{The Chi-Square distribution (a special Gamma
+distribution)}\label{the-chi-square-distribution-a-special-gamma-distribution}}
+
+Theorem: Let \(Y_1, Y_2, \cdots, Y_n\) be a random sample of size \(n\)
+from a \emph{normal} distribution with mean \(\mu\) and variance
+\(\sigma^2\).
+
+Then,
+
+\[
+ Z_i=\frac{Y_i-\mu}{\sigma} 
+\]
+
+are independent standard normal random variables, \(i=1,\cdots,n\) and
+
+\[
+\sum_{i=1}^n Z_i^2=\sum_{i}\left(\frac{Y_i-\mu}{n}\right)^2
+\]
+
+has a \(\chi^2\)-distribution with \(n\) degree of freedom (df).
+
+The proof can be conducted by the moment generating function.
+
+\hypertarget{example-chi2-distribution-derviation}{%
+\paragraph{\texorpdfstring{Example: \(\chi^2\) distribution
+derviation}{Example: \textbackslash chi\^{}2 distribution derviation}}\label{example-chi2-distribution-derviation}}
+
+The moment generating function of \(Z^2\) is
+
+\[
+\begin{aligned}
+m_{Z^2}(t)=E(e^{tZ^2})&=\int_{-\infty}^\infty e^{tz^2}f(z)dz\\
+&= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-z^2(1-2t)/2}dz\\
+&=\frac{1}{(1-2t)^{1/2}} \int\frac{1}{\sqrt{2\pi}(1-2t)^{-1/2}}\exp\left(-\frac{z^2/2}{(1-2t)^{-1}}\right)dz \\
+&=\frac{1}{(1-2t)^{1/2}} \\
+\end{aligned}
+\]
+
+with the corresponding density function of \(U=Z^2\) is given by
+
+\[
+f_U(u)=\frac{u^{-1/2}e^{-u/2}}{\Gamma(1/2)2^{1/2}}
+\]
+
+which, is a Gamma distribution with (\(\alpha=1/2, \beta=2\)) and is
+also called the \(\chi^2\) distribution with degree of freedom 1.
+
+More over, for the \(V=\sum_{i=1}^n Z_i^2=\sum_{i=1}^nU_i\),
+
+\[
+m_V(t)=\prod(m_{Z_i^2}(t))=\left((1-2t)^{-1/2}\right)^n=(1-2t)^{-n/2}
+\]
+
+with the corresponding density function,
+
+\[
+f_V(v)=\frac{u^{-n/2}e^{-u/2}}{\Gamma(n/2)2^{n/2}}
+\]
+
+which is a Gamma(\(\alpha\), \(\beta\)) and \(\alpha=n/2\) and
+\(\beta=2\),
+
+\[
+f(x)=\frac{1}{\Gamma(\alpha)\beta^\alpha}x^{\alpha-1}e^{-x/\beta}
+\]
+
+\hypertarget{example-calculation-1}{%
+\paragraph{Example: Calculation}\label{example-calculation-1}}
+
+If \(Z_1,\cdots,Z_6\) denotes a random sample from standard normal
+distribution, find a number b such that \[
+P(\sum_{i=1}^6Z^2_i\leq b)=0.95
+\]
+
+As \(\sum_{i=1}^6 Z^2_i\) has a \(\chi^2\) distribution with degree of
+freedom 6, we can get either in the \(\chi^2\) table or using the
+software, such as rcode below
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qchisq}\NormalTok{(}\FloatTok{0.95}\NormalTok{,}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 12.59159
+\end{verbatim}
+
+Find out that
+
+\[
+P(\sum_{i=1}^6Z^2_i\leq 12.59159)=0.95
+\]
+
+\begin{quote}
+Theorem: Let \(Y_1, Y_2, \cdots, Y_n\) be a random sample of size \(n\)
+from a \emph{normal} distribution with mean \(\mu\) and variance
+\(\sigma^2\). Then, \[
+\frac{(n-1)s^2}{\sigma^2}=\frac{\sum_{i=1}^n(Y_i-\bar{Y})^2}{\sigma^2}
+\] has a \(\chi^2\) distribution with \(n-1\) degree of freedom.
+
+\(\bar{Y}\) and \(S^2\) are independent random variables.
+\end{quote}
+
+\hypertarget{example-prove-the-above-theorem-when-n2}{%
+\paragraph{\texorpdfstring{Example: Prove the above theorem when
+\(n=2\)}{Example: Prove the above theorem when n=2}}\label{example-prove-the-above-theorem-when-n2}}
+
+\hypertarget{the-t-distribution}{%
+\section{The t distribution}\label{the-t-distribution}}
+
+\begin{quote}
+Theorem: Let \(Z\) be a standard normal random variable and let \(W\) be
+a \(\chi^2\) distributed variable with \(k\) degree of freedom. Then, if
+\(Z\) and \(W\) are independent,
+\end{quote}
+
+\[
+ T=\frac{Z}{\sqrt{W/k}}
+\]
+
+is a t distribution with d.f. \(k\), with density function,
+
+\[
+ f(t)=\frac{\Gamma(\frac{k+1}{2})}{\Gamma(\frac{k}{2})}\,
+ \frac{1}{\sqrt{k\,\pi}}\,
+ \left(1+\frac{t^2}{k}\right)^{-\frac{k+1}{2}}
+\]
+
+\hypertarget{example-suppose-that-t-is-r.v.-as-above-derive-its-p.d.f.}{%
+\paragraph{\texorpdfstring{Example: Suppose that \(T\) is R.V. as above,
+derive its
+p.d.f.}{Example: Suppose that T is R.V. as above, derive its p.d.f.}}\label{example-suppose-that-t-is-r.v.-as-above-derive-its-p.d.f.}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  If \(T\) is given by \(\frac{U}{\sqrt{V/k}}\), find the joint density
+  of \(U\) and \(V\).
+\item
+  Find the density function of \(T\).
+\end{enumerate}
+
+\[
+   f_{U,V}(u,v) = \underbrace{\frac{1}{(2\pi)^{1/2}} e^{-u^2/2}}_{\text{pdf } N(0,1)}\quad \underbrace{\frac{1}{\Gamma(\frac{k}{2})\,2^{k/2}}\,v^{(k/2)-1}\, e^{-v/2}}_{\text{pdf }\chi^2_k}
+\]
+
+Denote
+
+\[
+   t=\frac{u}{\sqrt{v/k}}, \quad w=v
+\]
+
+where
+
+\[
+   u=t(\frac{w}{k})^{1/2}, \quad v= w
+\]
+
+The Jacobian matrix can be find as
+
+\[
+   J=\begin{vmatrix}
+   \frac{du}{dt} & \frac{du}{dw}\\
+   \frac{dv}{dt} & \frac{dv}{dw}\\
+   \end{vmatrix}=\begin{vmatrix}
+   (\frac{w}{k})^{1/2} & \frac{1}{2}t(\frac{1}{wk})^{1/2}\\
+   0&1
+   \end{vmatrix}=(\frac{w}{k})^{1/2}
+\]
+
+Hence, the marginal p.d.f. is
+
+\[
+   \begin{aligned}
+   f_T(t) &= \displaystyle\int_0^\infty \,f_{U,V}\bigg(t\,(\frac{w}{k})^{1/2},w\bigg)(w/k)^{1/2}\,\mathrm{d} w\\[2ex]
+   &= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma(\frac{k}{2})2^{k/2}}\,
+   \int_0^\infty\,
+   e^{-\frac{\left(t(\frac{w}{k})^{1/2}\right)^2}{2}}
+   w^{(k/2)-1}
+   e^{-(\frac{w}{2})}
+   \frac{w^{1/2}}{k^{1/2}}\,\mathrm{d}w\\[2ex]
+   &= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma(\frac{k}{2})2^{k/2}k^{1/2}}\,
+   \displaystyle\int_0^\infty\,
+   w^{((k+1)/2)-1}\,e^{-(1/2)(1 + t^2/k)w}\,\mathrm{d}w
+   \end{aligned}
+\]
+
+where
+
+\[
+   \int_0^\infty\,
+   w^{((k+1)/2)-1}\,e^{-(1/2)(1 + t^2/k)w}\,\mathrm{d}w=\int_0^{\infty}w^{\alpha-1}\,e^{-\lambda w}dw=\frac{\lambda^\alpha}{\Gamma(\alpha)}
+\]
+
+where
+
+\[
+   \alpha=(k+1)/2,\,\quad \lambda=(1/2)(1+t^2/k)
+\]
+
+Thus,
+
+\[
+   \begin{aligned}
+   f_T(t)&= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma\left(\frac{k}{2}\right)2^{k/2}k^{1/2}}\,
+   \frac{\Gamma\left((k+1)/2\right)}{\left((1/2)(1+t^2/k)\right)^{(k+1)/2}}\\[2ex]
+   &=\frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma\left(\frac{k}{2}\right)\,2^{k/2}k^{1/2}}\,\Gamma\left((k+1)/2\right)\,
+   \Big[\frac{2}{(1+t^2/k)}\Big]^{(k+1)/2}\\[2ex]
+   &= \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(2\pi)^{1/2}2^{k/2}k^{1/2}}\,
+   \Big[\frac{2}{(1+t^2/k)}\Big]^{(k+1)/2}\\[2ex]
+   &=\frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(2\pi)^{1/2}2^{k/2}k^{1/2}}\,
+   \frac{2^{(k+1)/2}}{(1+t^2/k)^{(k+1)/2}}\\[2ex]
+   &= \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(\pi)^{1/2}k^{1/2}}\,
+   \frac{1}{(1+t^2/k)^{(k+1)/2}}\\[2ex]
+   &=\frac{\Gamma(\frac{k+1}{2})}{\Gamma(\frac{k}{2})}\,
+   \frac{1}{\sqrt{k\,\pi}}\,
+   \left(1+\frac{t^2}{k}\right)^{-\frac{k+1}{2}}
+   \end{aligned}
+\]
+
+which is the pdf of the t-Student or Gosset distribution with \(k\)
+degrees of freedom (or \(n\) degrees of freedom).
+
+\hypertarget{example-calculation-2}{%
+\subparagraph{Example: Calculation}\label{example-calculation-2}}
+
+The tensile strength for a type of wire is normally distributed with
+unknown mean \(\mu\) and unknown variance \(\sigma^2\). Six pieces of
+wire were randomly selected from a large roll; \(Y_i\), the tensile
+strength for portion \(i\), is measured for \(i = 1, 2, . . . , 6\). The
+population mean \(\mu\) and variance \(\sigma^2\) can be estimated by
+\(\bar{Y}\) and \(s^2\), respectively.
+
+Find the approximate probability that \(\bar{Y}\) will be within
+\(2S/\sqrt{n}\) of the true population mean \(\mu\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pt}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{)}\SpecialCharTok{{-}}\FunctionTok{pt}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.8980605
+\end{verbatim}
+
+As
+
+\[
+T=\frac{\bar{Y}-\mu}{S/\sqrt{n}}
+\]
+
+Then
+
+\[
+P(|\bar{Y}-\mu|\leq 2S/\sqrt{n})=P(-2\leq T \leq 2)= P(T\leq 2)-P(T\leq -2)=?
+\]
+
+\hypertarget{the-f-distribution}{%
+\section{The F Distribution}\label{the-f-distribution}}
+
+Suppose that we want to compare the variances of two normal populations
+based on information contained in independent random samples from the
+two populations.
+
+\begin{quote}
+The F Distribution: Let \(W_1\) and \(W_2\) be independent \(\chi^2\)
+distributed random variables with \(v_1\) and \(v_2\) degree of freedom.
+Then, \[
+F=\frac{W_1/v_1}{W_2/v_2}=\frac{(n-1)S^2_1/\sigma^2_1/(n_1-1)}{(n-1)S^2_2/\sigma^2_2/(n_2-1)}=\frac{S^2_1/\sigma^2_1}{S^2_2/\sigma^2_2}
+\] is an F distribution, \(F(v_1=n_1-1,v_2=n_2-1)\).
+\end{quote}
+
+\hypertarget{example-calculation-3}{%
+\subparagraph{Example: Calculation}\label{example-calculation-3}}
+
+If there are two popluation with equal variance, we draw two sample with
+size \(n_1=6\) and \(n_2=10\), such that
+
+\[
+P(\frac{S^2_1}{S^2_2} \leq b)=0.95
+\]
+
+What is the value of b?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{qf}\NormalTok{(p,v1,v2)}
+\FunctionTok{pf}\NormalTok{(q,v1,v2)}
+\end{Highlighting}
+\end{Shaded}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{the-distribution-of-quadratic-forms-more-on-degree-of-freedom}{%
+\chapter{The distribution of quadratic forms (More on degree of
+freedom)}\label{the-distribution-of-quadratic-forms-more-on-degree-of-freedom}}
+
+This can be derived from (Cochran 1934)
+
+\begin{quote}
+The number \(n-p\) is the rank of form Q, i.e.~the smallest number of
+independent variables on which the form may be brought by a non-singular
+linear transformation. In statistical applications, this number of free
+variables entering into a problem is usually, in accordance with the
+terminology introduced by R.A. Fisher, denoted as the number of
+\emph{degree of freedom} of the problem, or of the distribution of the
+random variables attached to the problem.
+\end{quote}
+
+\begin{theorem}[Cochran's
+theorem]\protect\hypertarget{thm-Cochran}{}\label{thm-Cochran}
+
+Let \(X_1, \cdots, X_N\) be i.i.d. standard normal, and
+
+\[\bf{X}=\left[\begin{array}{}X_1\\ \vdots\\X_N\\ \end{array}\right],\]
+a random vector of random variables.
+
+Let \(B^{(1)}, B^{(2)},\cdots,B^{(k)}\) be symmetric matrices with rank
+\(r_i\). Then,
+
+\[Q_i=U^TB^{(i)}U \] so that the \(Q_i\) are quadratic forms. Further
+assume
+
+\[\sum_i Q_i= U^TU\]
+
+Then, the following are equivalent:
+
+\begin{itemize}
+\tightlist
+\item
+  \(r_1+\cdots +r_k =N\)
+\item
+  \(Q_i\) are independent
+\end{itemize}
+
+\end{theorem}
+
+Denote \(Y \sim N(\bf{0}, \sigma^2 I_n)\) is
+
+\begin{quote}
+Lemma
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.zhihu.com/question/20983193}{ref to zhihu}
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\markboth{References}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-cochran1934}{}}%
+Cochran, W. G. 1934. {``The Distribution of Quadratic Forms in a Normal
+System, with Applications to the Analysis of Covariance.''}
+\emph{Mathematical Proceedings of the Cambridge Philosophical Society}
+30 (2): 178--91. \url{https://doi.org/10.1017/S0305004100016595}.
+
+\end{CSLReferences}
+
+
+
+\end{document}

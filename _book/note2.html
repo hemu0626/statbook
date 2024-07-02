@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics - 2&nbsp; Normal Distribution, Chi-Square Distribution, t Distribution and F Distribution</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./note3.html" rel="next">
+<link href="./note1.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./note2.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Normal Distribution, Chi-Square Distribution, t Distribution and F Distribution</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./note1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Review on Basic Probabilities, Sampling Distribution and Normal related Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./note2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Normal Distribution, Chi-Square Distribution, t Distribution and F Distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./note3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The distribution of quadratic forms (More on degree of freedom)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link active" data-scroll-target="#normal-distribution"><span class="header-section-number">2.1</span> Normal Distribution</a></li>
+  <li><a href="#the-chi-square-distribution-a-special-gamma-distribution" id="toc-the-chi-square-distribution-a-special-gamma-distribution" class="nav-link" data-scroll-target="#the-chi-square-distribution-a-special-gamma-distribution"><span class="header-section-number">2.2</span> The Chi-Square distribution (a special Gamma distribution)</a></li>
+  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution"><span class="header-section-number">2.3</span> The t distribution</a></li>
+  <li><a href="#the-f-distribution" id="toc-the-f-distribution" class="nav-link" data-scroll-target="#the-f-distribution"><span class="header-section-number">2.4</span> The F Distribution</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Normal Distribution, Chi-Square Distribution, t Distribution and F Distribution</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>This sections shows the relation between the four distribution and proof for the transformation.</p>
+<section id="normal-distribution" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="normal-distribution"><span class="header-section-number">2.1</span> Normal Distribution</h2>
+<blockquote class="blockquote">
+<p>Normal Distribution:</p>
+</blockquote>
+<p><span class="math display">\[
+f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}
+\]</span></p>
+<blockquote class="blockquote">
+<p>Theorem: Let <span class="math inline">\(Y_1, Y_2, \cdots, Y_n\)</span> be a random sample of size <span class="math inline">\(n\)</span> from a <em>normal</em> distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Then,</p>
+</blockquote>
+<p><span class="math display">\[
+\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i
+\]</span> is normally distributed with mean <span class="math inline">\(\mu_{\bar{Y}}=E(\bar{Y})=\mu\)</span> and variance <span class="math inline">\(\sigma^2_{\bar{Y}}=\frac{\sigma^2}{n}\)</span></p>
+<section id="standardized-z-value" class="level4" data-number="2.1.0.1">
+<h4 data-number="2.1.0.1" class="anchored" data-anchor-id="standardized-z-value"><span class="header-section-number">2.1.0.1</span> Standardized Z-Value</h4>
+<blockquote class="blockquote">
+<p>Standard Normal Distribution: Z <span class="math display">\[
+Z=\frac{\bar{Y}-\mu_{y}}{\sigma_{\bar{Y}}}=\frac{\bar{Y}-\mu}{\sigma/\sqrt{n}}
+\]</span></p>
+</blockquote>
+<p>We can use the Standard Normal Table or the softwares (R) to find the corresponding quantiles and probability.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(p,mu,sigma)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(q,mu,sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="example-calculation" class="level6" data-number="2.1.0.1.0.1">
+<h6 data-number="2.1.0.1.0.1" class="anchored" data-anchor-id="example-calculation"><span class="header-section-number">2.1.0.1.0.1</span> Example: Calculation</h6>
+<p>A bottling machine can be regulated so that it discharges an average of <span class="math inline">\(\mu\)</span> ounces perbottle. It has been observed that the amount of fill dispensed bythe machine is normally distributed with <span class="math inline">\(\sigma = 1.0\)</span> ounce. A sample of <span class="math inline">\(n = 9\)</span> filled bottles is randomly selected from the output of the machine on a given day (all bottled with the same machine setting), and the ounces of fill are measured for each.</p>
+<ol type="a">
+<li><p>Find the probability that the sample mean will be within <span class="math inline">\(0.3\)</span> ounce of the true mean <span class="math inline">\(\mu\)</span> for the chosen machine setting.</p></li>
+<li><p>How many observations should be included in the sample if we wish <span class="math inline">\(Y\)</span> to be within .3 ounce of <span class="math inline">\(\mu\)</span> with probability .95?</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="the-chi-square-distribution-a-special-gamma-distribution" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-chi-square-distribution-a-special-gamma-distribution"><span class="header-section-number">2.2</span> The Chi-Square distribution (a special Gamma distribution)</h2>
+<p>Theorem: Let <span class="math inline">\(Y_1, Y_2, \cdots, Y_n\)</span> be a random sample of size <span class="math inline">\(n\)</span> from a <em>normal</em> distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Then,</p>
+<p><span class="math display">\[
+Z_i=\frac{Y_i-\mu}{\sigma}
+\]</span></p>
+<p>are independent standard normal random variables, <span class="math inline">\(i=1,\cdots,n\)</span> and</p>
+<p><span class="math display">\[
+\sum_{i=1}^n Z_i^2=\sum_{i}\left(\frac{Y_i-\mu}{n}\right)^2
+\]</span></p>
+<p>has a <span class="math inline">\(\chi^2\)</span>-distribution with <span class="math inline">\(n\)</span> degree of freedom (df).</p>
+<p>The proof can be conducted by the moment generating function.</p>
+<section id="example-chi2-distribution-derviation" class="level5" data-number="2.2.0.0.1">
+<h5 data-number="2.2.0.0.1" class="anchored" data-anchor-id="example-chi2-distribution-derviation"><span class="header-section-number">2.2.0.0.1</span> Example: <span class="math inline">\(\chi^2\)</span> distribution derviation</h5>
+<p>The moment generating function of <span class="math inline">\(Z^2\)</span> is</p>
+<p><span class="math display">\[
+\begin{aligned}
+m_{Z^2}(t)=E(e^{tZ^2})&amp;=\int_{-\infty}^\infty e^{tz^2}f(z)dz\\
+&amp;= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-z^2(1-2t)/2}dz\\
+&amp;=\frac{1}{(1-2t)^{1/2}} \int\frac{1}{\sqrt{2\pi}(1-2t)^{-1/2}}\exp\left(-\frac{z^2/2}{(1-2t)^{-1}}\right)dz \\
+&amp;=\frac{1}{(1-2t)^{1/2}} \\
+\end{aligned}
+\]</span></p>
+<p>with the corresponding density function of <span class="math inline">\(U=Z^2\)</span> is given by</p>
+<p><span class="math display">\[
+f_U(u)=\frac{u^{-1/2}e^{-u/2}}{\Gamma(1/2)2^{1/2}}
+\]</span></p>
+<p>which, is a Gamma distribution with (<span class="math inline">\(\alpha=1/2, \beta=2\)</span>) and is also called the <span class="math inline">\(\chi^2\)</span> distribution with degree of freedom 1.</p>
+<p>More over, for the <span class="math inline">\(V=\sum_{i=1}^n Z_i^2=\sum_{i=1}^nU_i\)</span>,</p>
+<p><span class="math display">\[
+m_V(t)=\prod(m_{Z_i^2}(t))=\left((1-2t)^{-1/2}\right)^n=(1-2t)^{-n/2}
+\]</span></p>
+<p>with the corresponding density function,</p>
+<p><span class="math display">\[
+f_V(v)=\frac{u^{-n/2}e^{-u/2}}{\Gamma(n/2)2^{n/2}}
+\]</span></p>
+<p>which is a Gamma(<span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>) and <span class="math inline">\(\alpha=n/2\)</span> and <span class="math inline">\(\beta=2\)</span>,</p>
+<p><span class="math display">\[
+f(x)=\frac{1}{\Gamma(\alpha)\beta^\alpha}x^{\alpha-1}e^{-x/\beta}
+\]</span></p>
+</section>
+<section id="example-calculation-1" class="level5" data-number="2.2.0.0.2">
+<h5 data-number="2.2.0.0.2" class="anchored" data-anchor-id="example-calculation-1"><span class="header-section-number">2.2.0.0.2</span> Example: Calculation</h5>
+<p>If <span class="math inline">\(Z_1,\cdots,Z_6\)</span> denotes a random sample from standard normal distribution, find a number b such that <span class="math display">\[
+P(\sum_{i=1}^6Z^2_i\leq b)=0.95
+\]</span></p>
+<p>As <span class="math inline">\(\sum_{i=1}^6 Z^2_i\)</span> has a <span class="math inline">\(\chi^2\)</span> distribution with degree of freedom 6, we can get either in the <span class="math inline">\(\chi^2\)</span> table or using the software, such as rcode below</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qchisq</span>(<span class="fl">0.95</span>,<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12.59159</code></pre>
+</div>
+</div>
+<p>Find out that</p>
+<p><span class="math display">\[
+P(\sum_{i=1}^6Z^2_i\leq 12.59159)=0.95
+\]</span></p>
+<blockquote class="blockquote">
+<p>Theorem: Let <span class="math inline">\(Y_1, Y_2, \cdots, Y_n\)</span> be a random sample of size <span class="math inline">\(n\)</span> from a <em>normal</em> distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>. Then, <span class="math display">\[
+\frac{(n-1)s^2}{\sigma^2}=\frac{\sum_{i=1}^n(Y_i-\bar{Y})^2}{\sigma^2}
+\]</span> has a <span class="math inline">\(\chi^2\)</span> distribution with <span class="math inline">\(n-1\)</span> degree of freedom.</p>
+<p><span class="math inline">\(\bar{Y}\)</span> and <span class="math inline">\(S^2\)</span> are independent random variables.</p>
+</blockquote>
+</section>
+<section id="example-prove-the-above-theorem-when-n2" class="level5" data-number="2.2.0.0.3">
+<h5 data-number="2.2.0.0.3" class="anchored" data-anchor-id="example-prove-the-above-theorem-when-n2"><span class="header-section-number">2.2.0.0.3</span> Example: Prove the above theorem when <span class="math inline">\(n=2\)</span></h5>
+</section>
+</section>
+<section id="the-t-distribution" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">2.3</span> The t distribution</h2>
+<blockquote class="blockquote">
+<p>Theorem: Let <span class="math inline">\(Z\)</span> be a standard normal random variable and let <span class="math inline">\(W\)</span> be a <span class="math inline">\(\chi^2\)</span> distributed variable with <span class="math inline">\(k\)</span> degree of freedom. Then, if <span class="math inline">\(Z\)</span> and <span class="math inline">\(W\)</span> are independent,</p>
+</blockquote>
+<p><span class="math display">\[
+T=\frac{Z}{\sqrt{W/k}}
+\]</span></p>
+<p>is a t distribution with d.f. <span class="math inline">\(k\)</span>, with density function,</p>
+<p><span class="math display">\[
+f(t)=\frac{\Gamma(\frac{k+1}{2})}{\Gamma(\frac{k}{2})}\,
+\frac{1}{\sqrt{k\,\pi}}\,
+\left(1+\frac{t^2}{k}\right)^{-\frac{k+1}{2}}
+\]</span></p>
+<section id="example-suppose-that-t-is-r.v.-as-above-derive-its-p.d.f." class="level5" data-number="2.3.0.0.1">
+<h5 data-number="2.3.0.0.1" class="anchored" data-anchor-id="example-suppose-that-t-is-r.v.-as-above-derive-its-p.d.f."><span class="header-section-number">2.3.0.0.1</span> Example: Suppose that <span class="math inline">\(T\)</span> is R.V. as above, derive its p.d.f.</h5>
+<ol type="1">
+<li><p>If <span class="math inline">\(T\)</span> is given by <span class="math inline">\(\frac{U}{\sqrt{V/k}}\)</span>, find the joint density of <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>.</p></li>
+<li><p>Find the density function of <span class="math inline">\(T\)</span>.</p></li>
+</ol>
+<p><span class="math display">\[
+   f_{U,V}(u,v) = \underbrace{\frac{1}{(2\pi)^{1/2}} e^{-u^2/2}}_{\text{pdf } N(0,1)}\quad \underbrace{\frac{1}{\Gamma(\frac{k}{2})\,2^{k/2}}\,v^{(k/2)-1}\, e^{-v/2}}_{\text{pdf }\chi^2_k}
+\]</span></p>
+<p>Denote</p>
+<p><span class="math display">\[
+   t=\frac{u}{\sqrt{v/k}}, \quad w=v
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+   u=t(\frac{w}{k})^{1/2}, \quad v= w
+\]</span></p>
+<p>The Jacobian matrix can be find as</p>
+<p><span class="math display">\[
+   J=\begin{vmatrix}
+   \frac{du}{dt} &amp; \frac{du}{dw}\\
+   \frac{dv}{dt} &amp; \frac{dv}{dw}\\
+   \end{vmatrix}=\begin{vmatrix}
+   (\frac{w}{k})^{1/2} &amp; \frac{1}{2}t(\frac{1}{wk})^{1/2}\\
+   0&amp;1
+   \end{vmatrix}=(\frac{w}{k})^{1/2}
+\]</span></p>
+<p>Hence, the marginal p.d.f. is</p>
+<p><span class="math display">\[
+   \begin{aligned}
+   f_T(t) &amp;= \displaystyle\int_0^\infty \,f_{U,V}\bigg(t\,(\frac{w}{k})^{1/2},w\bigg)(w/k)^{1/2}\,\mathrm{d} w\\[2ex]
+   &amp;= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma(\frac{k}{2})2^{k/2}}\,
+   \int_0^\infty\,
+   e^{-\frac{\left(t(\frac{w}{k})^{1/2}\right)^2}{2}}
+   w^{(k/2)-1}
+   e^{-(\frac{w}{2})}
+   \frac{w^{1/2}}{k^{1/2}}\,\mathrm{d}w\\[2ex]
+   &amp;= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma(\frac{k}{2})2^{k/2}k^{1/2}}\,
+   \displaystyle\int_0^\infty\,
+   w^{((k+1)/2)-1}\,e^{-(1/2)(1 + t^2/k)w}\,\mathrm{d}w
+   \end{aligned}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+   \int_0^\infty\,
+   w^{((k+1)/2)-1}\,e^{-(1/2)(1 + t^2/k)w}\,\mathrm{d}w=\int_0^{\infty}w^{\alpha-1}\,e^{-\lambda w}dw=\frac{\lambda^\alpha}{\Gamma(\alpha)}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+   \alpha=(k+1)/2,\,\quad \lambda=(1/2)(1+t^2/k)
+\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[
+   \begin{aligned}
+   f_T(t)&amp;= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma\left(\frac{k}{2}\right)2^{k/2}k^{1/2}}\,
+   \frac{\Gamma\left((k+1)/2\right)}{\left((1/2)(1+t^2/k)\right)^{(k+1)/2}}\\[2ex]
+   &amp;=\frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma\left(\frac{k}{2}\right)\,2^{k/2}k^{1/2}}\,\Gamma\left((k+1)/2\right)\,
+   \Big[\frac{2}{(1+t^2/k)}\Big]^{(k+1)/2}\\[2ex]
+   &amp;= \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(2\pi)^{1/2}2^{k/2}k^{1/2}}\,
+   \Big[\frac{2}{(1+t^2/k)}\Big]^{(k+1)/2}\\[2ex]
+   &amp;=\frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(2\pi)^{1/2}2^{k/2}k^{1/2}}\,
+   \frac{2^{(k+1)/2}}{(1+t^2/k)^{(k+1)/2}}\\[2ex]
+   &amp;= \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(\pi)^{1/2}k^{1/2}}\,
+   \frac{1}{(1+t^2/k)^{(k+1)/2}}\\[2ex]
+   &amp;=\frac{\Gamma(\frac{k+1}{2})}{\Gamma(\frac{k}{2})}\,
+   \frac{1}{\sqrt{k\,\pi}}\,
+   \left(1+\frac{t^2}{k}\right)^{-\frac{k+1}{2}}
+   \end{aligned}
+\]</span></p>
+<p>which is the pdf of the t-Student or Gosset distribution with <span class="math inline">\(k\)</span> degrees of freedom (or <span class="math inline">\(n\)</span> degrees of freedom).</p>
+<section id="example-calculation-2" class="level6" data-number="2.3.0.0.1.1">
+<h6 data-number="2.3.0.0.1.1" class="anchored" data-anchor-id="example-calculation-2"><span class="header-section-number">2.3.0.0.1.1</span> Example: Calculation</h6>
+<p>The tensile strength for a type of wire is normally distributed with unknown mean <span class="math inline">\(\mu\)</span> and unknown variance <span class="math inline">\(\sigma^2\)</span>. Six pieces of wire were randomly selected from a large roll; <span class="math inline">\(Y_i\)</span>, the tensile strength for portion <span class="math inline">\(i\)</span>, is measured for <span class="math inline">\(i = 1, 2, . . . , 6\)</span>. The population mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span> can be estimated by <span class="math inline">\(\bar{Y}\)</span> and <span class="math inline">\(s^2\)</span>, respectively.</p>
+<p>Find the approximate probability that <span class="math inline">\(\bar{Y}\)</span> will be within <span class="math inline">\(2S/\sqrt{n}\)</span> of the true population mean <span class="math inline">\(\mu\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="dv">2</span>,<span class="dv">5</span>)<span class="sc">-</span><span class="fu">pt</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8980605</code></pre>
+</div>
+</div>
+<p>As</p>
+<p><span class="math display">\[
+T=\frac{\bar{Y}-\mu}{S/\sqrt{n}}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+P(|\bar{Y}-\mu|\leq 2S/\sqrt{n})=P(-2\leq T \leq 2)= P(T\leq 2)-P(T\leq -2)=?
+\]</span></p>
+</section>
+</section>
+</section>
+<section id="the-f-distribution" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-f-distribution"><span class="header-section-number">2.4</span> The F Distribution</h2>
+<p>Suppose that we want to compare the variances of two normal populations based on information contained in independent random samples from the two populations.</p>
+<blockquote class="blockquote">
+<p>The F Distribution: Let <span class="math inline">\(W_1\)</span> and <span class="math inline">\(W_2\)</span> be independent <span class="math inline">\(\chi^2\)</span> distributed random variables with <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> degree of freedom. Then, <span class="math display">\[
+F=\frac{W_1/v_1}{W_2/v_2}=\frac{(n-1)S^2_1/\sigma^2_1/(n_1-1)}{(n-1)S^2_2/\sigma^2_2/(n_2-1)}=\frac{S^2_1/\sigma^2_1}{S^2_2/\sigma^2_2}
+\]</span> is an F distribution, <span class="math inline">\(F(v_1=n_1-1,v_2=n_2-1)\)</span>.</p>
+</blockquote>
+<section id="example-calculation-3" class="level6" data-number="2.4.0.0.0.1">
+<h6 data-number="2.4.0.0.0.1" class="anchored" data-anchor-id="example-calculation-3"><span class="header-section-number">2.4.0.0.0.1</span> Example: Calculation</h6>
+<p>If there are two popluation with equal variance, we draw two sample with size <span class="math inline">\(n_1=6\)</span> and <span class="math inline">\(n_2=10\)</span>, such that</p>
+<p><span class="math display">\[
+P(\frac{S^2_1}{S^2_2} \leq b)=0.95
+\]</span></p>
+<p>What is the value of b?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qf</span>(p,v1,v2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pf</span>(q,v1,v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./note1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Review on Basic Probabilities, Sampling Distribution and Normal related Distributions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./note3.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The distribution of quadratic forms (More on degree of freedom)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

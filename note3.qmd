@@ -1,0 +1,36 @@
+---
+bibliography: references.bib
+---
+
+# The distribution of quadratic forms (More on degree of freedom)
+
+This can be derived from [@cochran1934]
+
+> The number $n-p$ is the rank of form Q, i.e. the smallest number of independent variables on which the form may be brought by a non-singular linear transformation. In statistical applications, this number of free variables entering into a problem is usually, in accordance with the terminology introduced by R.A. Fisher, denoted as the number of *degree of freedom* of the problem, or of the distribution of the random variables attached to the problem.
+
+::: {#thm-Cochran}
+## Cochran's theorem
+
+Let $X_1, \cdots, X_N$ be i.i.d. standard normal, and
+
+$$\mathbf{X}=\left[\begin{array}{c}X_1\\ \vdots\\X_N\\ \end{array}\right],$$
+
+a random vector of random variables. 
+
+Let $B^{(1)}, B^{(2)},\cdots,B^{(k)}$ be symmetric matrices with rank $r_i$. Then,
+
+$$Q_i=U^TB^{(i)}U $$ so that the $Q_i$ are quadratic forms. Further assume
+
+$$\sum_i Q_i= U^TU$$
+
+Then, the following are equivalent:
+
+-   $r_1+\cdots +r_k =N$
+-   $Q_i$ are independent
+:::
+
+Denote $Y \sim N(\bf{0}, \sigma^2 I_n)$ is
+
+> Lemma
+
+-   [ref to zhihu](https://www.zhihu.com/question/20983193)

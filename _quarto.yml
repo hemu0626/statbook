@@ -1,0 +1,26 @@
+project:
+  type: book
+
+book:
+  title: "Statistics"
+  author: "Mu He"
+  date: "5/16/2024"
+  chapters:
+    - index.qmd
+    - note1.qmd
+    - note2.qmd
+    - note3.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: comsmo
+  pdf:
+    documentclass: scrreprt
+
+pdf-engine: pdflatex
+
+editor: visual
+

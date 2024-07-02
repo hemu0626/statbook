@@ -1,0 +1,287 @@
+# Normal Distribution, Chi-Square Distribution, t Distribution and F Distribution
+
+This sections shows the relation between the four distribution and proof for the transformation.
+
+## Normal Distribution
+
+> Normal Distribution: 
+
+$$
+f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}
+$$
+
+> Theorem: Let $Y_1, Y_2, \cdots, Y_n$ be a random sample of size $n$ from a *normal* distribution with mean $\mu$ and variance $\sigma^2$. Then, 
+
+$$
+\bar{Y}=\frac{1}{n}\sum_{i=1}^n Y_i
+$$ 
+is normally distributed with mean $\mu_{\bar{Y}}=E(\bar{Y})=\mu$ and variance $\sigma^2_{\bar{Y}}=\frac{\sigma^2}{n}$
+
+#### Standardized Z-Value
+
+> Standard Normal Distribution: Z $$
+> Z=\frac{\bar{Y}-\mu_{y}}{\sigma_{\bar{Y}}}=\frac{\bar{Y}-\mu}{\sigma/\sqrt{n}}
+> $$
+
+We can use the Standard Normal Table or the softwares (R) to find the corresponding quantiles and probability.
+
+```{r, eval=F, echo=T}
+qnorm(p,mu,sigma)
+
+pnorm(q,mu,sigma)
+```
+
+###### Example: Calculation
+
+A bottling machine can be regulated so that it discharges an average of $\mu$ ounces perbottle. It has been observed that the amount of fill dispensed bythe machine is normally distributed with $\sigma = 1.0$ ounce. A sample of $n = 9$ filled bottles is randomly selected from the output of the machine on a given day (all bottled with the same machine setting), and the ounces of fill are measured for each.
+
+(a) Find the probability that the sample mean will be within $0.3$ ounce of the true mean $\mu$ for the chosen machine setting.
+
+(b) How many observations should be included in the sample if we wish $Y$ to be within .3 ounce of $\mu$ with probability .95?
+
+## The Chi-Square distribution (a special Gamma distribution)
+
+Theorem: Let $Y_1, Y_2, \cdots, Y_n$ be a random sample of size $n$ from a *normal* distribution with mean $\mu$ and variance $\sigma^2$.
+
+ Then,
+ 
+$$
+ Z_i=\frac{Y_i-\mu}{\sigma} 
+$$ 
+
+are independent standard normal random variables, $i=1,\cdots,n$ and 
+
+
+$$
+\sum_{i=1}^n Z_i^2=\sum_{i}\left(\frac{Y_i-\mu}{n}\right)^2
+$$ 
+
+
+has a $\chi^2$-distribution with $n$ degree of freedom (df).
+
+The proof can be conducted by the moment generating function.
+
+##### Example: $\chi^2$ distribution derviation
+
+The moment generating function of $Z^2$ is 
+
+$$
+\begin{aligned}
+m_{Z^2}(t)=E(e^{tZ^2})&=\int_{-\infty}^\infty e^{tz^2}f(z)dz\\
+&= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-z^2(1-2t)/2}dz\\
+&=\frac{1}{(1-2t)^{1/2}} \int\frac{1}{\sqrt{2\pi}(1-2t)^{-1/2}}\exp\left(-\frac{z^2/2}{(1-2t)^{-1}}\right)dz \\
+&=\frac{1}{(1-2t)^{1/2}} \\
+\end{aligned}
+$$ 
+
+with the corresponding density function of $U=Z^2$ is given by 
+
+
+$$
+f_U(u)=\frac{u^{-1/2}e^{-u/2}}{\Gamma(1/2)2^{1/2}}
+$$ 
+
+
+which, is a Gamma distribution with ($\alpha=1/2, \beta=2$) and is also called the $\chi^2$ distribution with degree of freedom 1.
+
+More over, for the $V=\sum_{i=1}^n Z_i^2=\sum_{i=1}^nU_i$,
+
+$$
+m_V(t)=\prod(m_{Z_i^2}(t))=\left((1-2t)^{-1/2}\right)^n=(1-2t)^{-n/2}
+$$
+
+with the corresponding density function, 
+
+$$
+f_V(v)=\frac{u^{-n/2}e^{-u/2}}{\Gamma(n/2)2^{n/2}}
+$$ 
+
+which is a Gamma($\alpha$, $\beta$) and $\alpha=n/2$ and $\beta=2$, 
+
+
+$$
+f(x)=\frac{1}{\Gamma(\alpha)\beta^\alpha}x^{\alpha-1}e^{-x/\beta}
+$$
+
+##### Example: Calculation
+
+If $Z_1,\cdots,Z_6$ denotes a random sample from standard normal distribution, find a number b such that 
+$$
+P(\sum_{i=1}^6Z^2_i\leq b)=0.95
+$$ 
+
+As $\sum_{i=1}^6 Z^2_i$ has a $\chi^2$ distribution with degree of freedom 6, we can get either in the $\chi^2$ table or using the software, such as rcode below
+
+```{r}
+qchisq(0.95,6)
+```
+
+Find out that 
+
+$$
+P(\sum_{i=1}^6Z^2_i\leq 12.59159)=0.95
+$$
+
+> Theorem: Let $Y_1, Y_2, \cdots, Y_n$ be a random sample of size $n$ from a *normal* distribution with mean $\mu$ and variance $\sigma^2$. Then, 
+>$$
+>\frac{(n-1)s^2}{\sigma^2}=\frac{\sum_{i=1}^n(Y_i-\bar{Y})^2}{\sigma^2}
+>$$ has a $\chi^2$ distribution with $n-1$ degree of freedom.
+>
+> $\bar{Y}$ and $S^2$ are independent random variables.
+
+##### Example: Prove the above theorem when $n=2$
+
+## The t distribution
+
+> Theorem: Let $Z$ be a standard normal random variable and let $W$ be a $\chi^2$ distributed variable with $k$ degree of freedom. Then, if $Z$ and $W$ are independent, 
+
+$$
+ T=\frac{Z}{\sqrt{W/k}}
+$$ 
+
+is a t distribution with d.f. $k$, with density function, 
+
+$$
+ f(t)=\frac{\Gamma(\frac{k+1}{2})}{\Gamma(\frac{k}{2})}\,
+ \frac{1}{\sqrt{k\,\pi}}\,
+ \left(1+\frac{t^2}{k}\right)^{-\frac{k+1}{2}}
+$$
+ 
+
+##### Example: Suppose that $T$ is R.V. as above, derive its p.d.f.
+
+1.  If $T$ is given by $\frac{U}{\sqrt{V/k}}$, find the joint density of $U$ and $V$.
+
+2.  Find the density function of $T$.
+
+$$
+   f_{U,V}(u,v) = \underbrace{\frac{1}{(2\pi)^{1/2}} e^{-u^2/2}}_{\text{pdf } N(0,1)}\quad \underbrace{\frac{1}{\Gamma(\frac{k}{2})\,2^{k/2}}\,v^{(k/2)-1}\, e^{-v/2}}_{\text{pdf }\chi^2_k}
+$$
+
+Denote
+
+$$
+   t=\frac{u}{\sqrt{v/k}}, \quad w=v
+$$
+
+where 
+
+$$
+   u=t(\frac{w}{k})^{1/2}, \quad v= w
+$$
+
+The Jacobian matrix can be find as
+
+$$
+   J=\begin{vmatrix}
+   \frac{du}{dt} & \frac{du}{dw}\\
+   \frac{dv}{dt} & \frac{dv}{dw}\\
+   \end{vmatrix}=\begin{vmatrix}
+   (\frac{w}{k})^{1/2} & \frac{1}{2}t(\frac{1}{wk})^{1/2}\\
+   0&1
+   \end{vmatrix}=(\frac{w}{k})^{1/2}
+$$
+
+Hence, the marginal p.d.f. is
+
+$$
+   \begin{aligned}
+   f_T(t) &= \displaystyle\int_0^\infty \,f_{U,V}\bigg(t\,(\frac{w}{k})^{1/2},w\bigg)(w/k)^{1/2}\,\mathrm{d} w\\[2ex]
+   &= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma(\frac{k}{2})2^{k/2}}\,
+   \int_0^\infty\,
+   e^{-\frac{\left(t(\frac{w}{k})^{1/2}\right)^2}{2}}
+   w^{(k/2)-1}
+   e^{-(\frac{w}{2})}
+   \frac{w^{1/2}}{k^{1/2}}\,\mathrm{d}w\\[2ex]
+   &= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma(\frac{k}{2})2^{k/2}k^{1/2}}\,
+   \displaystyle\int_0^\infty\,
+   w^{((k+1)/2)-1}\,e^{-(1/2)(1 + t^2/k)w}\,\mathrm{d}w
+   \end{aligned}
+$$ 
+
+where
+
+$$
+   \int_0^\infty\,
+   w^{((k+1)/2)-1}\,e^{-(1/2)(1 + t^2/k)w}\,\mathrm{d}w=\int_0^{\infty}w^{\alpha-1}\,e^{-\lambda w}dw=\frac{\lambda^\alpha}{\Gamma(\alpha)}
+$$ 
+
+where
+
+$$
+   \alpha=(k+1)/2,\,\quad \lambda=(1/2)(1+t^2/k)
+$$ 
+
+Thus,
+
+$$
+   \begin{aligned}
+   f_T(t)&= \frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma\left(\frac{k}{2}\right)2^{k/2}k^{1/2}}\,
+   \frac{\Gamma\left((k+1)/2\right)}{\left((1/2)(1+t^2/k)\right)^{(k+1)/2}}\\[2ex]
+   &=\frac{1}{(2\pi)^{1/2}}\frac{1}{\Gamma\left(\frac{k}{2}\right)\,2^{k/2}k^{1/2}}\,\Gamma\left((k+1)/2\right)\,
+   \Big[\frac{2}{(1+t^2/k)}\Big]^{(k+1)/2}\\[2ex]
+   &= \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(2\pi)^{1/2}2^{k/2}k^{1/2}}\,
+   \Big[\frac{2}{(1+t^2/k)}\Big]^{(k+1)/2}\\[2ex]
+   &=\frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(2\pi)^{1/2}2^{k/2}k^{1/2}}\,
+   \frac{2^{(k+1)/2}}{(1+t^2/k)^{(k+1)/2}}\\[2ex]
+   &= \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}\,
+   \frac{1}{(\pi)^{1/2}k^{1/2}}\,
+   \frac{1}{(1+t^2/k)^{(k+1)/2}}\\[2ex]
+   &=\frac{\Gamma(\frac{k+1}{2})}{\Gamma(\frac{k}{2})}\,
+   \frac{1}{\sqrt{k\,\pi}}\,
+   \left(1+\frac{t^2}{k}\right)^{-\frac{k+1}{2}}
+   \end{aligned}
+$$
+
+which is the pdf of the t-Student or Gosset distribution with $k$ degrees of freedom (or $n$ degrees of freedom).
+
+###### Example: Calculation
+
+The tensile strength for a type of wire is normally distributed with unknown mean $\mu$ and unknown variance $\sigma^2$. Six pieces of wire were randomly selected from a large roll; $Y_i$, the tensile strength for portion $i$, is measured for $i = 1, 2, . . . , 6$. The population mean $\mu$ and variance $\sigma^2$ can be estimated by $\bar{Y}$ and $s^2$, respectively.
+
+Find the approximate probability that $\bar{Y}$ will be within $2S/\sqrt{n}$ of the true population mean $\mu$.
+
+```{r}
+pt(2,5)-pt(-2,5)
+```
+
+As
+
+$$
+T=\frac{\bar{Y}-\mu}{S/\sqrt{n}}
+$$
+
+Then
+
+$$
+P(|\bar{Y}-\mu|\leq 2S/\sqrt{n})=P(-2\leq T \leq 2)= P(T\leq 2)-P(T\leq -2)=?
+$$
+
+
+
+## The F Distribution
+
+Suppose that we want to compare the variances of two normal populations based on information contained in independent random samples from the two populations.
+
+> The F Distribution: Let $W_1$ and $W_2$ be independent $\chi^2$ distributed random variables with $v_1$ and $v_2$ degree of freedom. Then, $$
+> F=\frac{W_1/v_1}{W_2/v_2}=\frac{(n-1)S^2_1/\sigma^2_1/(n_1-1)}{(n-1)S^2_2/\sigma^2_2/(n_2-1)}=\frac{S^2_1/\sigma^2_1}{S^2_2/\sigma^2_2}
+> $$ is an F distribution, $F(v_1=n_1-1,v_2=n_2-1)$.
+
+###### Example: Calculation
+
+If there are two popluation with equal variance, we draw two sample with size $n_1=6$ and $n_2=10$, such that
+
+$$
+P(\frac{S^2_1}{S^2_2} \leq b)=0.95
+$$
+
+What is the value of b?
+
+```{r, eval=F, echo=T}
+qf(p,v1,v2)
+pf(q,v1,v2)
+```
+
+
