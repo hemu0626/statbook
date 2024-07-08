@@ -10,6 +10,8 @@ book:
     - note1.qmd
     - note2.qmd
     - note3.qmd
+    - isl2.qmd
+    - isl3.qmd
     - references.qmd
 
 bibliography: references.bib
