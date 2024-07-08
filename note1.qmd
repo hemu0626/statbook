@@ -78,22 +78,21 @@ Not required, just as an introduction. If you are very intersted in probability 
 
 ### Sequence of Random Variables
 
-In statistics, we draw a sample to make inference of the population, then, if we repeatly draw samples, we will have a sequence of samples from the same population, we usually refer them as i.i.d. (independent and identical distributed) or random samples. This can be denoted as 
+In statistics, we draw a sample to make inference of the population, then, if we repeatly draw samples, we will have a sequence of samples from the same population, we usually refer them as i.i.d. (independent and identical distributed) or random samples. This can be denoted as
 
 $$
 \{\Omega,\Sigma,P\}
-$$ 
-where $\Omega$ is the sample space, 
+$$ where $\Omega$ is the sample space,
 
 $$
 \Omega=\{\omega_1,\omega_2,\cdots, \omega_n\}, \quad w_i \text{ are simple(single) events}
-$$ 
+$$
 
 $\Sigma$ is the $\sigma$-algebra (You may consider it is set of the sets of simple events in brief) and $P$ is a probability measure.
 
 However, if we consider the samples not necessarily from the same population, we may have a sequence of random variables $X_1,X_2,\cdots$, and an correspnded underlying sample space $\Omega$. In particular, each $X_n$ is a function from its $\Omega$, to real numbers through the probability measure $P$.
 
-In other words, a sequence of random variables is in fact a sequence of functions (Mapping, or $P$, or a probability measure) $X_n:\Omega\rightarrow \mathbb{R}$ , such as 
+In other words, a sequence of random variables is in fact a sequence of functions (Mapping, or $P$, or a probability measure) $X_n:\Omega\rightarrow \mathbb{R}$ , such as
 
 $$
 P(\omega_i)=x_i, \quad \omega_i \in \Omega \text{ and } \sum x_i=1, \quad i = 1,\cdots,n
@@ -101,7 +100,7 @@ $$
 
 ###### Example: Convergence of Sequence of R.V.
 
-Consider the following random experiment: A fair coin is tossed once. Here, the sample space has only two elements $S=\{H,T\}$. We define a sequence of random variables $X_1,X_2,\cdots$ on this sample space as follows: 
+Consider the following random experiment: A fair coin is tossed once. Here, the sample space has only two elements $S=\{H,T\}$. We define a sequence of random variables $X_1,X_2,\cdots$ on this sample space as follows:
 
 $$
 \nonumber X_n(s) = \left\{
@@ -119,7 +118,7 @@ $$
 2.  Find the PMF and CDF of $X_n$, $F_{X_n}(x)$ for $n=1,2,3,\cdots$.
 
     The PMF are
-    
+
 $$
    \nonumber P_{{\large X_n}}(x)=P(X_n=x) = \left\{
    \begin{array}{l l}
@@ -176,18 +175,18 @@ Here we discuss the mean and variance of this random variable, that is to say th
 
 To start, we specify the Law of large numbers. There are two main versions of the Law of large numbers
 
-**The Weak Law of Large Numbers (WLLN)**: 
+**The Weak Law of Large Numbers (WLLN)**:
 
-Let $X_1,X_2,\cdots,X_n$ be i.i.d. random variables with finite expected value $E(X_i)=\mu<\infty$. Then, for any $\epsilon>0$, 
+Let $X_1,X_2,\cdots,X_n$ be i.i.d. random variables with finite expected value $E(X_i)=\mu<\infty$. Then, for any $\epsilon>0$,
 
-$$\lim_{n\rightarrow \infty}P\big(|\bar{X}-\mu| \geq \epsilon\big)=0 $$ 
+$$\lim_{n\rightarrow \infty}P\big(|\bar{X}-\mu| \geq \epsilon\big)=0 $$
 
-That is 
+That is
 
 $$
  \bar{X}\xrightarrow{p} \mu
-$$ 
- 
+$$
+
 *Proof*
 
 Assume the variance of $X$ be $Var(X)=\sigma^2$ is finite. In this case, we can use Chebyshev's inequality to write $$
@@ -199,7 +198,6 @@ $$ This goes to zero as $n\rightarrow \infty$.
 $$
  \bar{X} \xrightarrow{a.s.} \mu
 $$
-
 
 ## Reference
 
@@ -214,4 +212,3 @@ $$
 -   [Terry Tao's Blog](https://terrytao.wordpress.com/2008/06/18/the-strong-law-of-large-numbers/)
 
 -   [t-distribution](https://math.stackexchange.com/questions/474733/derivation-of-the-density-function-of-student-t-distribution-from-this-big-integ)
-
